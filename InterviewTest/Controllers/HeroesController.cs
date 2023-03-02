@@ -14,8 +14,9 @@ namespace InterviewTest.Controllers
         private Hero[] heroes = new Hero[] {
                new Hero()
                {
+                   id= 1,
                    name= "Hulk",
-                   power="Strength from gamma radiation",
+                   power= "Strength from gamma radiation",
                    stats=
                    new List<KeyValuePair<string, int>>()
                    {
@@ -42,14 +43,32 @@ namespace InterviewTest.Controllers
 
         // POST: api/Heroes
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Hero Post([FromBody] Hero hero = null)
         {
+            Hero heroObj = new Hero();
+
+            heroObj.stats = hero.stats;
+
+            heroObj.evolve();
+
+            hero.stats = heroObj.stats;
+
+            return hero;
         }
 
         // PUT: api/Heroes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public Hero Put(int id, [FromBody] Hero hero)
         {
+            Hero heroObj = new Hero();
+
+            heroObj.stats = hero.stats;
+
+            heroObj.evolve();
+
+            hero.stats = heroObj.stats;
+
+            return hero;
         }
 
         // DELETE: api/ApiWithActions/5
