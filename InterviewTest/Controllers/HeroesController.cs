@@ -11,8 +11,9 @@ namespace InterviewTest.Controllers
     [ApiController]
     public class HeroesController : ControllerBase
     {
+
         private Hero[] heroes = new Hero[] {
-               new Hero()
+            new Hero()
                {
                    id= 1,
                    name= "Hulk",
